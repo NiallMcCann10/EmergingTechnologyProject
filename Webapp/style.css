@@ -1,10 +1,13 @@
 body {
   background-color: cyan;
+  position: absolute;
 }
 h1 {
   color: green;
+  position: relative;
 }
 h2
 {
     color: red;
+    position: relative;
 }
