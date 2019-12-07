@@ -2,6 +2,8 @@
 import flask as fl
 #for generating numbers
 import numpy as np
+#for decoding images
+import base64
 
 #create the flask app
 app = fl.Flask(__name__)
@@ -18,4 +20,9 @@ def uploadimage():
     theimage = fl.request.values.get("theimage", "")
     #print to the python console
     print(theimage)
+    #Decode the string to an image
+    decodedimage = base64.decodestring(theimage)
+    #Try to save the image
+    with open("theimage.png", "wb") as f:
+        f.write(decodedimage)
     return{"message": theimage}
