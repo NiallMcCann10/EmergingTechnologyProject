@@ -1,6 +1,4 @@
-//-------------------
 // GLOBAL variables
-//-------------------
 let model;
 
 var canvasWidth           	= 150;
@@ -19,9 +17,7 @@ var drawing;
 document.getElementById('chart_box').innerHTML = "";
 document.getElementById('chart_box').style.display = "none";
 
-//---------------
 // Create canvas
-//---------------
 var canvasBox = document.getElementById('canvas_box');
 var canvas    = document.createElement("canvas");
 
@@ -36,10 +32,7 @@ if(typeof G_vmlCanvasManager != 'undefined') {
 
 ctx = canvas.getContext("2d");
 
-
-//---------------------
 // MOUSE DOWN function
-//---------------------
 $("#canvas").mousedown(function(e) {
 	var rect = canvas.getBoundingClientRect();
 	var mouseX = e.clientX- rect.left;;
@@ -49,9 +42,7 @@ $("#canvas").mousedown(function(e) {
 	drawOnCanvas();
 });
 
-//-----------------------
 // TOUCH START function
-//-----------------------
 canvas.addEventListener("touchstart", function (e) {
 	if (e.target == canvas) {
     	e.preventDefault();
@@ -69,9 +60,7 @@ canvas.addEventListener("touchstart", function (e) {
 
 }, false);
 
-//---------------------
 // MOUSE MOVE function
-//---------------------
 $("#canvas").mousemove(function(e) {
 	if(drawing) {
 		var rect = canvas.getBoundingClientRect();
@@ -82,9 +71,7 @@ $("#canvas").mousemove(function(e) {
 	}
 });
 
-//---------------------
 // TOUCH MOVE function
-//---------------------
 canvas.addEventListener("touchmove", function (e) {
 	if (e.target == canvas) {
     	e.preventDefault();
@@ -101,16 +88,12 @@ canvas.addEventListener("touchmove", function (e) {
 	}
 }, false);
 
-//-------------------
 // MOUSE UP function
-//-------------------
 $("#canvas").mouseup(function(e) {
 	drawing = false;
 });
 
-//---------------------
 // TOUCH END function
-//---------------------
 canvas.addEventListener("touchend", function (e) {
 	if (e.target == canvas) {
     	e.preventDefault();
@@ -118,16 +101,12 @@ canvas.addEventListener("touchend", function (e) {
 	drawing = false;
 }, false);
 
-//----------------------
 // MOUSE LEAVE function
-//----------------------
 $("#canvas").mouseleave(function(e) {
 	drawing = false;
 });
 
-//-----------------------
 // TOUCH LEAVE function
-//-----------------------
 canvas.addEventListener("touchleave", function (e) {
 	if (e.target == canvas) {
     	e.preventDefault();
@@ -135,18 +114,14 @@ canvas.addEventListener("touchleave", function (e) {
 	drawing = false;
 }, false);
 
-//--------------------
 // ADD CLICK function
-//--------------------
 function addUserGesture(x, y, dragging) {
 	clickX.push(x);
 	clickY.push(y);
 	clickD.push(dragging);
 }
 
-//-------------------
 // RE DRAW function
-//-------------------
 function drawOnCanvas() {
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -167,9 +142,7 @@ function drawOnCanvas() {
 	}
 }
 
-//------------------------
 // CLEAR CANVAS function
-//------------------------
 $("#clear-button").click(async function () {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 	clickX = new Array();
@@ -179,16 +152,14 @@ $("#clear-button").click(async function () {
 	$("#result_box").addClass('d-none');
 });
 
-//-------------------------------------
 // loader for cnn model
-//-------------------------------------
 async function loadModel() {
   console.log("model loading..");
 
   // clear the model variable
   model = undefined;
   
-  // load the model using a HTTPS request (where you have stored your model files)
+  // load the model using a HTTPS request
   model = await tf.loadLayersModel("static/models/model.json");
   
   console.log("model loaded..");
@@ -196,9 +167,7 @@ async function loadModel() {
 
 loadModel();
 
-//-----------------------------------------------
 // preprocess the canvas
-//-----------------------------------------------
 function preprocessCanvas(image) {
 	// resize the input image to target size of (1, 28, 28)
 	let tensor = tf.browser.fromPixels(image)
@@ -211,9 +180,7 @@ function preprocessCanvas(image) {
 	return tensor.div(255.0);
 }
 
-//--------------------------------------------
 // predict function 
-//--------------------------------------------
 $("#predict-button").click(async function () {
     // get image data from canvas
 	var imageData = canvas.toDataURL();
@@ -236,9 +203,7 @@ $("#predict-button").click(async function () {
 });
 
 
-//------------------------------
 // Chart to display predictions
-//------------------------------
 var chart = "";
 var firstTime = 0;
 function loadChart(label, data, modelSelected) {
@@ -259,15 +224,13 @@ function loadChart(label, data, modelSelected) {
 	        }]
 	    },
 
-	    // Configuration options go here
+	    // Configuration options
 	    options: {}
 	});
 }
 
-//----------------------------
-// display chart with updated
-// drawing from canvas
-//----------------------------
+
+// display chart with updated drawing from canvas
 function displayChart(data) {
 	var select_model  = document.getElementById("select_model");
   	var select_option = "CNN";
@@ -283,6 +246,7 @@ function displayChart(data) {
 	document.getElementById('chart_box').style.display = "block";
 }
 
+//Displaying the Label of the data sent from the canvas
 function displayLabel(data) {
 	var max = data[0];
     var maxIndex = 0;
