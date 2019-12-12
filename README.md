@@ -26,6 +26,8 @@ Once the figure is drawn into the canvas, the user can simply select the "Predic
 The user is able to clear the screen, without having to reload the entire application each time, simply by selecting the "Clear" button.
 
 <h1>End Product</h1>
+![](ezgif.com-video-to-gif.gif)
+
 
 <h1>References</h1>
 Links and Videos provided by Dr. Ian McLoughlin of Galway Mayo Institute of Technology.<br>
