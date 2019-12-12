@@ -26,7 +26,7 @@ Once the figure is drawn into the canvas, the user can simply select the "Predic
 The user is able to clear the screen, without having to reload the entire application each time, simply by selecting the "Clear" button.
 
 <h1>End Product</h1>
-![](https://github.com/NiallMcCann10/EmergingTechnologyProject/blob/master/ezgif.com-video-to-gif.gif)
+![](https://raw.githubusercontent.com/NiallMcCann10/EmergingTechnologyProject/master/ezgif.com-video-to-gif.gif)
 
 
 <h1>References</h1>
