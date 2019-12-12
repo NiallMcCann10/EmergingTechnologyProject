@@ -5,7 +5,7 @@ This Application is for recognising Hand Written digits on a canvas, and compari
 
 <h1>Installation</h1>
 To clone this repository, simply type into the cmd of your chosen folder git clone https://github.com/NiallMcCann10/EmergingTechnologyProject.git
-<br>
+<br></br>
 To run this application, you require the following:<br>
     Python 3,<br>
     Anaconda,<br>
@@ -13,7 +13,7 @@ To run this application, you require the following:<br>
     Keras,<br>
     Tensorflow,<br>
     Flask,<br>
-    JQuery.<br>
+    JQuery.<br></br>
     
 Once the repository is cloned, to run the application, Open cmder and in the cmder of the root folder, simply type env FLASK_APP=flaskApp.py flask run<br>
 
@@ -36,3 +36,5 @@ https://www.codicode.com/art/how_to_draw_on_a_html5_canvas_with_a_mouse.aspx<br>
 https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/<br>
 https://www.youtube.com/watch?v=f6Bf3gl4hWY<br>
 https://www.youtube.com/watch?v=wQ8BIBpya2k<br>
+https://palletsprojects.com/p/flask/<br>
+https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d<br>
